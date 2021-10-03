@@ -78,10 +78,14 @@ int main() {
 	Grand* pg;
 	Superb* ps;
 	for (size_t i = 0; i < 5; ++i) {
+
 		pg = GetOneFactory();
+		std::cout << "NOW PROCESSING TYPE: " << typeid(*pg).name() << std::endl;
 		pg->Speak();
 		if (ps = dynamic_cast<Superb*>(pg))
 			ps->Say();
+		if (typeid(Magnificient) == typeid(*pg))
+			std::cout << "REALLY MAGNIFICIENT" << std::endl;
 	}
 	//Mammal* ptr;
 	//const size_t MAX=10;
